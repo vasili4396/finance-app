@@ -1,0 +1,17 @@
+# Temporary Python files
+*.pyc
+__pycache__
+
+# Virtual environment
+env
+
+# Temporary OS files
+*DS_Store
+
+# Temporary IDE files
+.cache
+.idea*
+
+# Project
+application/local_settings.py
+mysql-data*
