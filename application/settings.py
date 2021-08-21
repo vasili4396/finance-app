@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -5,6 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-cnwz!6^zxb6i*oqy*vnjwm6)51$g@#n5_!95kp_lkqx!put=+-'
 
 DEBUG = True
+TESTING = 'test' in sys.argv
 
 ALLOWED_HOSTS = ('*',)
 
@@ -99,6 +101,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if TESTING:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'test',
+        'TEST': {'NAME': 'test'},
+    }
 
 try:
     from application.local_settings import *
