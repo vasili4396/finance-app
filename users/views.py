@@ -1,4 +1,5 @@
 from dateutil import parser
+from django.utils import timezone
 from django.contrib.auth import get_user_model
 from rest_framework import viewsets, mixins, serializers
 from rest_framework.response import Response
@@ -16,7 +17,7 @@ class UserAccounting(viewsets.GenericViewSet, mixins.RetrieveModelMixin):
 
         if date:
             try:
-                date = parser.parse(date)
+                date = timezone.make_aware(parser.parse(date))
             except parser.ParserError:
                 raise serializers.ValidationError('Invalid date supplied. Use ISO 8601 format')
 

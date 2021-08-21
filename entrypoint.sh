@@ -15,5 +15,5 @@ if [[ $1 == "fill_db" ]]; then
 fi
 
 if [[ $1 == "test" ]]; then
-  python test_project/manage.py test --noinput --verbosity 2
+  python manage.py test --noinput --verbosity 2
 fi

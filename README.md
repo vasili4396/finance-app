@@ -54,3 +54,12 @@ http://localhost:8000/users/api/accounting/23/?date=2020-10-30
 ```shell
 docker-compose run backend test
 ```
+
+
+## Подсчистить все на системе
+```shell
+docker-compose rm -s -f
+```
+```shell
+docker image rm -f finance-app_backend
+```
